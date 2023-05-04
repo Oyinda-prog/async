@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="show()">Check</button>
+    <div id="display"></div>
+    <script>
+        let url = "http://jsonplaceholder.typicode.com/comments"
+        const show=async()=>{
+    let result=  await fetch(url)
+  let totalResult = await result.json()
+  console.log(totalResult)
+    for (let index = 0; index < totalResult.length; index++) {
+    console.log(totalResult[index])  
+    display.innerHTML +=  `
+    <h1>My name is ${totalResult[index].name} and my email address is ${totalResult[index].email}</h1> 
+    `
+    }
+        }
+ 
+    </script>
+</body>
+</html>
